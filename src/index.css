@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream-50: #FFFAF5;
+  --color-cream-100: #FDF6EE;
+  --color-cream-200: #F5EADD;
+  --color-cream-300: #EDDDCC;
+  --color-cream-400: #E8D5B8;
+  --color-cream-500: #D5C4A8;
+  --color-cream-600: #B8A58E;
+  --color-cream-700: #9C8A74;
+  --color-cream-800: #7F6E5A;
+  --color-cream-900: #635240;
+  --color-cream-950: #4A3728;
+
+  --color-jupiter-50: #FDF0E0;
+  --color-jupiter-100: #FADCB8;
+  --color-jupiter-200: #F5C48A;
+  --color-jupiter-300: #EEA85C;
+  --color-jupiter-400: #E88B3A;
+  --color-jupiter-500: #D4813D;
+  --color-jupiter-600: #B86A2C;
+  --color-jupiter-700: #9A551E;
+  --color-jupiter-800: #7C4015;
+  --color-jupiter-900: #5E2C0D;
+  --color-jupiter-950: #401A06;
+
+  --color-red-spot-50: #FEF0EC;
+  --color-red-spot-100: #FBDAD0;
+  --color-red-spot-200: #F7BBA8;
+  --color-red-spot-300: #F2967C;
+  --color-red-spot-400: #ED7255;
+  --color-red-spot-500: #D94B33;
+  --color-red-spot-600: #C0392B;
+  --color-red-spot-700: #9C2D22;
+  --color-red-spot-800: #782219;
+  --color-red-spot-900: #541710;
+  --color-red-spot-950: #300C08;
+
+  --color-background: var(--color-cream-100);
+  --color-surface: var(--color-cream-50);
+  --color-foreground: var(--color-cream-900);
+  --color-heading: var(--color-cream-950);
+  --color-muted: var(--color-cream-600);
+  --color-accent: var(--color-jupiter-400);
+  --color-accent-hover: var(--color-jupiter-500);
+  --color-accent-subtle: var(--color-jupiter-50);
+  --color-border: var(--color-cream-300);
+  --color-code-bg: var(--color-cream-200);
+  --color-danger: var(--color-red-spot-500);
+  --color-danger-hover: var(--color-red-spot-600);
+  --color-danger-subtle: var(--color-red-spot-50);
+
+  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-serif: 'Lora', serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 145%;
+    letter-spacing: 0.18px;
+    color: var(--color-foreground);
+    background-image:
+      radial-gradient(ellipse 80% 55% at 50% 35%, rgba(238, 168, 92, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 70%, rgba(242, 150, 124, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 22px 14px at 20% 28%, rgba(242, 150, 124, 0.14) 0%, transparent 100%),
+      radial-gradient(ellipse 16px 10px at 50% 42%, rgba(247, 187, 168, 0.10) 0%, transparent 100%),
+      radial-gradient(circle 6px at 70% 55%, rgba(238, 168, 92, 0.08) 0%, transparent 100%),
+      radial-gradient(circle 5px at 35% 62%, rgba(0, 0, 0, 0.04) 0%, transparent 100%),
+      radial-gradient(circle 7px at 80% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
+      radial-gradient(ellipse 18px 10px at 110% 50%, rgba(242, 150, 124, 0.10) 0%, transparent 100%),
+      radial-gradient(circle 5px at 140% 35%, rgba(238, 168, 92, 0.07) 0%, transparent 100%),
+      radial-gradient(ellipse 12px 8px at 170% 60%, rgba(247, 187, 168, 0.08) 0%, transparent 100%),
+      linear-gradient(
+        160deg,
+        var(--color-cream-100) 0%,
+        var(--color-jupiter-200) 14%,
+        var(--color-cream-50) 23%,
+        var(--color-jupiter-100) 30%,
+        var(--color-jupiter-300) 40%,
+        var(--color-cream-100) 48%,
+        var(--color-red-spot-200) 54%,
+        var(--color-cream-50) 60%,
+        var(--color-jupiter-400) 70%,
+        var(--color-jupiter-200) 82%,
+        var(--color-cream-100) 100%
+      );
+    background-size: auto, auto, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%;
+    background-repeat: no-repeat;
+      animation: jupiter-spin 20s linear infinite alternate;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (max-width: 1024px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
+  #root {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+
+  h1 {
+    font-size: 56px;
+    letter-spacing: -1.68px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 36px;
+      margin: 20px 0;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 118%;
+    letter-spacing: -0.24px;
+    margin: 0 0 8px;
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    display: inline-flex;
+    border-radius: 4px;
+    color: var(--color-heading);
+    font-size: 15px;
+    line-height: 135%;
+    padding: 4px 8px;
+    background: var(--color-code-bg);
+  }
+}
+
+.dark {
+  --color-background: var(--color-jupiter-950);
+  --color-surface: var(--color-jupiter-900);
+  --color-foreground: var(--color-cream-100);
+  --color-heading: var(--color-cream-50);
+  --color-muted: var(--color-cream-300);
+  --color-accent: var(--color-jupiter-300);
+  --color-accent-hover: var(--color-jupiter-200);
+  --color-accent-subtle: var(--color-jupiter-800);
+  --color-border: var(--color-jupiter-700);
+  --color-code-bg: var(--color-jupiter-800);
+  --color-danger: var(--color-red-spot-300);
+  --color-danger-hover: var(--color-red-spot-200);
+  --color-danger-subtle: var(--color-red-spot-800);
+}
+
+.dark body {
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 35%, rgba(238, 168, 92, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 70%, rgba(242, 150, 124, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 22px 14px at 20% 28%, rgba(242, 150, 124, 0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 16px 10px at 50% 42%, rgba(247, 187, 168, 0.12) 0%, transparent 100%),
+    radial-gradient(circle 6px at 70% 55%, rgba(238, 168, 92, 0.10) 0%, transparent 100%),
+    radial-gradient(circle 5px at 35% 62%, rgba(255, 255, 255, 0.05) 0%, transparent 100%),
+    radial-gradient(circle 7px at 80% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 100%),
+    radial-gradient(ellipse 18px 10px at 110% 50%, rgba(242, 150, 124, 0.12) 0%, transparent 100%),
+    radial-gradient(circle 5px at 140% 35%, rgba(238, 168, 92, 0.08) 0%, transparent 100%),
+    radial-gradient(ellipse 12px 8px at 170% 60%, rgba(247, 187, 168, 0.10) 0%, transparent 100%),
+    linear-gradient(
+      160deg,
+      var(--color-jupiter-950) 0%,
+      var(--color-jupiter-800) 14%,
+      var(--color-jupiter-900) 23%,
+      var(--color-jupiter-700) 30%,
+      var(--color-jupiter-950) 40%,
+      var(--color-red-spot-950) 48%,
+      var(--color-jupiter-900) 54%,
+      var(--color-jupiter-800) 60%,
+      var(--color-jupiter-950) 70%,
+      var(--color-jupiter-900) 82%,
+      var(--color-jupiter-950) 100%
+    );
+  background-size: auto, auto, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%, 200% 100%;
+  background-repeat: no-repeat;
+  animation: jupiter-spin 20s linear infinite alternate;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes jupiter-spin {
+  0% { background-position: 0 0, 0 0, 0% 0, 0% 0, 0% 0, 0% 0, 0% 0, 0% 0, 0% 0, 0% 0, 0% 0; }
+  100% { background-position: 0 0, 0 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0; }
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to bottom, rgba(154, 85, 30, 0.3), transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: none;
+}
