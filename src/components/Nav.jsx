@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 
@@ -9,19 +9,15 @@ const NAV_LINKS = [
 
 function Nav() {
   const { user, logout } = useAuth()
-  const [dropdownOpen, setDropdownOpen] = useState(false)
   const [toast, setToast] = useState(false)
-  const dropdownRef = useRef(null)
   const navigate = useNavigate()
 
   function handleEuropa() {
-    setDropdownOpen(false)
     setToast(true)
     setTimeout(() => setToast(false), 2000)
   }
 
   function handleGanymede() {
-    setDropdownOpen(false)
     navigate('/agents/ganymede')
   }
 
@@ -48,16 +44,11 @@ function Nav() {
               {link.label}
             </NavLink>
           ))}
-          <div
-            className="relative"
-            ref={dropdownRef}
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
+          <div className="relative group">
             <span className="flex items-center gap-1 text-heading font-serif font-normal text-base pb-1 border-b-2 border-transparent select-none">
               Agents
               <svg
-                className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                className="w-3.5 h-3.5 mt-0.5 transition-transform duration-200 group-hover:rotate-180"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -69,7 +60,7 @@ function Nav() {
               </svg>
             </span>
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-44 bg-surface rounded-md border border-border shadow-lg z-10 overflow-hidden transition-all duration-200 ease-out ${dropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-1 pointer-events-none'}`}
+              className="absolute top-full left-1/2 -translate-x-1/2 min-w-44 bg-surface rounded-md border border-border shadow-lg z-10 overflow-hidden transition-all duration-200 ease-out opacity-0 translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto pt-1.5"
             >
               <button
                 onClick={handleGanymede}

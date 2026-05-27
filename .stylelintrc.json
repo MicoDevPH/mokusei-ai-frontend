@@ -1,0 +1,25 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "import-notation": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["theme", "custom-variant"]
+      }
+    ],
+    "custom-property-empty-line-before": null,
+    "value-keyword-case": null,
+    "color-function-alias-notation": null,
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number",
+    "media-feature-range-notation": null,
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["-webkit-backdrop-filter"]
+      }
+    ],
+    "rule-empty-line-before": null
+  }
+}
