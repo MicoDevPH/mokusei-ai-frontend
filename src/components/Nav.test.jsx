@@ -23,14 +23,16 @@ describe('Nav', () => {
     renderNav()
     const links = ['Home', 'Agents', 'Pricing', 'Login']
     links.forEach((link) => {
-      expect(screen.getByText(link)).toBeInTheDocument()
+      const elements = screen.getAllByText(link)
+      expect(elements.length).toBeGreaterThanOrEqual(1)
     })
   })
 
-  it('renders correct number of links and dropdown trigger', () => {
+  it('renders correct number of link elements and dropdown trigger', () => {
     renderNav()
     const links = screen.getAllByRole('link')
     expect(links).toHaveLength(4)
-    expect(screen.getByText('Agents')).toBeInTheDocument()
+    const agentsElements = screen.getAllByText('Agents')
+    expect(agentsElements.length).toBe(2)
   })
 })

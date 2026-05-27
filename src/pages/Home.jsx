@@ -60,11 +60,11 @@ function Home() {
   return (
     <main className="grow">
       {/* Hero */}
-      <section className="flex flex-col items-center text-center px-4 pt-40 pb-32">
+      <section className="flex flex-col items-center text-center px-4 pt-24 sm:pt-32 lg:pt-40 pb-32">
         <span className="animate-[fade-up_0.6s_ease-out_both] text-xs tracking-[0.3em] uppercase text-foreground/60 px-4 py-1.5 rounded-full border border-border bg-surface/50">
           Welcome to
         </span>
-        <h1 className="animate-[fade-up_0.6s_ease-out_0.15s_both] font-pixel text-heading text-7xl leading-relaxed mt-6">
+        <h1 className="animate-[fade-up_0.6s_ease-out_0.15s_both] font-pixel text-heading text-4xl sm:text-5xl md:text-7xl leading-tight sm:leading-relaxed mt-6">
           MOKUSEI AI
         </h1>
         <p className="animate-[fade-up_0.6s_ease-out_0.3s_both] text-muted font-serif text-xl max-w-lg mt-6 leading-relaxed">
@@ -162,7 +162,7 @@ function Home() {
         data-observe="cta"
         className={`px-4 pb-32 transition-all duration-700 ease-out ${visible.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
-        <div className="max-w-3xl mx-auto bg-surface rounded-md border border-border p-12 text-center">
+        <div className="max-w-3xl mx-auto bg-surface rounded-md border border-border p-6 sm:p-8 lg:p-12 text-center">
           <h2 className="text-heading font-serif font-medium text-2xl mb-3">
             Use MOKUSEI AI on your projects!
           </h2>

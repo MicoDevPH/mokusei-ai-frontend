@@ -35,7 +35,8 @@ describe('App', () => {
 
   it('renders the navigation', () => {
     renderApp()
-    expect(screen.getByText('Home')).toBeInTheDocument()
+    const homeElements = screen.getAllByText('Home')
+    expect(homeElements.length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders CTA buttons in the hero', () => {
